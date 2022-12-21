@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcrypto_com_docs=self.webpackChunkcrypto_com_docs||[]).push([[4451],{3588:o=>{o.exports=JSON.parse('{"label":"facebook","permalink":"/crypto-com-docs/blog/tags/facebook","allTagsPath":"/crypto-com-docs/blog/tags","count":1}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcrypto_com_docs=self.webpackChunkcrypto_com_docs||[]).push([[9081],{5123:c=>{c.exports=JSON.parse('{"label":"docusaurus","permalink":"/crypto-com-docs/blog/tags/docusaurus","allTagsPath":"/crypto-com-docs/blog/tags","count":4}')}}]);

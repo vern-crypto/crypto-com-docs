@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcrypto_com_docs=self.webpackChunkcrypto_com_docs||[]).push([[3925],{7721:o=>{o.exports=JSON.parse('{"permalink":"/crypto-com-docs/blog/tags/hola","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
