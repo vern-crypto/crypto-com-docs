@@ -9,5 +9,5 @@ sidebar_position: 2
 use npm package manager
 
 ```bash npm2yarn
-$ npm install "@deficonnect/provider"
+$ npm install @deficonnect/provider
 ```

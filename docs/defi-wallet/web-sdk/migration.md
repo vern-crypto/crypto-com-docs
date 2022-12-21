@@ -18,7 +18,7 @@ import TabItem from "@theme/TabItem";
   <TabItem value="v2" label="v2">
 ```
 
-```ts
+```ts {1} showLineNumbers
 import { DeFiWeb3Connector } from "@deficonnect/web3-connector";
 
 const connector = new DeFiWeb3Connector({
@@ -39,7 +39,7 @@ connector.activate();
   <TabItem value="v1" label="v1">
 ```
 
-```ts
+```ts {1} showLineNumbers
 import { DeFiWeb3Connector } from "deficonnect";
 
 const connector = new DeFiWeb3Connector({

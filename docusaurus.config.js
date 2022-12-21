@@ -7,8 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Crypto.com Docs",
-  tagline:
-    "Developer Documentation Center",
+  tagline: "Developer Documentation Center",
   url: "https://vern-crypto.github.io",
   baseUrl: "/crypto-com-docs",
   onBrokenLinks: "throw",
@@ -40,6 +39,9 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/vern-crypto/crypto-com-docs/tree/main/",
+          remarkPlugins: [
+            [require("@docusaurus/remark-plugin-npm2yarn"), { sync: true }],
+          ],
         },
         blog: {
           showReadingTime: true,
@@ -47,10 +49,30 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/vern-crypto/crypto-com-docs/tree/main/",
         },
+        pages: {
+          remarkPlugins: [require("@docusaurus/remark-plugin-npm2yarn")],
+        },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
       }),
+    ],
+  ],
+  themes: [
+    // ... Your other themes.
+    [
+      "@easyops-cn/docusaurus-search-local",
+      {
+        // ... Your options.
+        // `hashed` is recommended as long-term-cache of index file is possible.
+        hashed: true,
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+        // For Docs using Chinese, The `language` is recommended to set to:
+        // ```
+        // language: ["en", "zh"],
+        // ```
+      },
     ],
   ],
 
