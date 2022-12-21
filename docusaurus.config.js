@@ -76,9 +76,9 @@ const config = {
                 label: "Tutorial",
               },
               {
-                label: "DeFi Connect SDK",
+                label: "DeFi Wallet",
                 type: "doc",
-                docId: "deficonnect/deficonnect-overview",
+                docId: "defi-wallet/introduction/welcome",
               },
               //   {
               //     label: "APIs",

@@ -1,5 +1,5 @@
 ---
-id: deficonnect-overview
+id: defi-wallet-overview
 title: Introduction
 sidebar_position: 1
 ---
