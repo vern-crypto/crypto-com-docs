@@ -1,6 +1,6 @@
 ---
 title: Chrome Extension Wallet Integration
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Quick Start

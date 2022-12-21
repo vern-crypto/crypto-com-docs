@@ -1,6 +1,6 @@
 ---
 id: deficonnect-overview
-title: Get Start
+title: Introduction
 sidebar_position: 1
 ---
 
