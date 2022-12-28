@@ -27,7 +27,7 @@ There are two ways to integrate DeFi Wallet into your web applications:
 
 ## Mobile applications
 
-You can integrate Coinbase Wallet into your native mobile application via the DeFi Wallet Mobile SDK.
+You can integrate DeFi Wallet into your native mobile application via the DeFi Wallet Mobile SDK.
 
 The SDK is available for the following platforms:
 

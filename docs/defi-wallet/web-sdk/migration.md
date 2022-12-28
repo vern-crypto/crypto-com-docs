@@ -1,6 +1,6 @@
 ---
 title: Migrating from v1 to v2
-sidebar_position: 3
+sidebar_position: 6
 ---
 
 ## Migration overview
