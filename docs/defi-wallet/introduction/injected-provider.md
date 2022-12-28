@@ -9,6 +9,23 @@ The DeFi Wallet browser extension injects an Ethereum provider, as specified by 
 
 You can use this provider in your dapp to request user's Ethereum accounts, read on-chain data, and have the user sign messages and transactions, without using the DeFi Wallet SDK.
 
+## Wallet browser extension injects environment variables
+
+if you are installed wallet browser extension, then it will auto inject followings variables to window:
+
+```ts title="Injected Provider(Adapt to different eco)"
+interface Window {
+  ethereum?: Provider;
+  deficonnectProvider?: Provider;
+  aptos?: PetraProvider;
+  petra?: PetraProvider;
+  martian?: MartianProvider;
+  deficonnect: { aptos?: PetraProvider; ethereum?: Provider };
+}
+```
+
+but you don't need care about it, DeFi Wallet SDK will auto handle it.
+
 ## Benefits of Using DeFi Wallet SDK vs. the Injected Provider
 
 The basic functionality between DeFi Wallet SDK and the DeFi Wallet injected provider is very similar. However, the SDK provides some additional helpful features:

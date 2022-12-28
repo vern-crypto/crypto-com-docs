@@ -23,7 +23,7 @@ import { DeFiWeb3Connector } from "@deficonnect/web3-connector";
 
 const connector = new DeFiWeb3Connector({
   supportedChainIds: [1],
-  appName: "your app name",
+  appName: "your app name", // optional
   chainType: "eth", // only support 'eth' for DeFiWeb3Connector
   chainId: "25", // for eth is 1
   rpcUrls: {
