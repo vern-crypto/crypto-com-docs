@@ -12,8 +12,12 @@ async function sendTransaction() {
   const provider = await connector.getProvider();
 
   provider.request({
-    method: 'eth_sendTransaction'
-    params: [{ /* your transaction params */ }]
-  })
+    method: "eth_sendTransaction",
+    params: [
+      {
+        /* your transaction params */
+      },
+    ],
+  });
 }
 ```
