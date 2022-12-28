@@ -91,11 +91,11 @@ const config = {
             type: "dropdown",
             position: "left",
             items: [
-              {
-                type: "doc",
-                docId: "tutorial/intro",
-                label: "Tutorial",
-              },
+            //   {
+            //     type: "doc",
+            //     docId: "tutorial/intro",
+            //     label: "Tutorial",
+            //   },
               {
                 label: "DeFi Wallet",
                 type: "doc",
