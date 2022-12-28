@@ -1,5 +1,5 @@
 ---
-title: Send Transaction
+title: Send Transaction & RPC Called
 sidebar_position: 5
 ---
 

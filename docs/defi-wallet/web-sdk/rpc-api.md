@@ -1,171 +1,11 @@
 ---
-title: Chrome Extension Wallet Integration
-sidebar_position: 20
+title: RPC API
+sidebar_position: 6
 ---
 
-# Quick Start
+# RPC API
 
-you can use our SDK to integrate our DeFiWallet(Chrome Extension & Mobile).
-more detail: [deficonnect-monorepo](https://github.com/crypto-com/deficonnect-monorepo).
-
-if you use [web3-react](https://www.npmjs.com/package/web3-react), you only need integrate [@deficonnect/web3-connector](https://github.com/crypto-com/deficonnect-monorepo/blob/develop/packages/web3-connector), this package implement the `AbstractConnector` from `web3-react`.
-
-if not. you can import [@deficonnect/provider](https://github.com/crypto-com/deficonnect-monorepo/blob/develop/packages/provider). This package is used to help dapps connect to crypto.com wallet extension. Automatically detect the running environment, and proxy the method call to the provider.
-
-
-# Basic Considerations
-
-
-Once Wallet Extension is installed and running, you should find that new browser tabs have a `window.deficonnectProvider` object available in the developer console. This is how your website will interact with Wallet Extension.
-
-> Remark：
-You also can find a window.ethereum object. If you not install other Wallet Extension, this will  interact with Crypto.com | Wallet Extension. If you install other like MetaMask, window.ethereum object will interact with MetaMask.
-
-### Web3 Browser Detection
-
-To verify if the browser is running `Crypto.com | Wallet Extension`, copy and paste the code snippet below in the developer console of your web browser:
-
-``` javascript
-if (typeof window.deficonnectProvider !== 'undefined') {
-  console.log('Crypto.com | Wallet Extension is installed!');
-}
-```
-
-You can review the full API for the `window.deficonnectProvider` object [here](#deficonnectprovider-api).
-
-> Remark：
-because Chrome Extension [MV3](https://developer.chrome.com/docs/extensions/mv3/) load delay, you maybe need a timeout to detect `window.deficonnectProvider`
-
-
-# DeFiConnectProvider API
-## Properties
-
-### isDeficonnectProvider
-
-This property is non-standard.
-
-true if the user has `Crypto.com | Wallet Extension` installed
-
-
-### connected
-
-Returns `true` if the provider is connected to the current chain, and `false` otherwise.
-
-
-### chainType
-
-represents the chainType where the current wallet is located.
-currently support 'eth' | 'cosmos'.
-
-example: 
-if use select `cronos` `ethereum` `ropsten` or other evm like chain, the chainType will be `eth`.
-if use select `crypto.org` or `cosmos`, the chainType will be `cosmos`.
-
-
-### chainId
-if `chainType == 'eth'` the chainId will be the Hex value for chainId:
-
-|Hex |Decimal|Network
-|----|-------|---------
-|0x1 |1      |Ethereum Main Network (Mainnet)
-|0x3 |3      |Ropsten Test Network
-|0x4 |4      |Rinkeby Test Network
-|0x5 |5      |Goerli Test Network
-|0x2a|42     |Kovan Test Network
-
-if `chainType == 'cosmos'` the chainId will be the value for chainId:
-
-|chainId   |Network
-|----------|---------
-|crypto-org-chain-mainnet-1|Crypto.org Main Network (Mainnet)
-|cosmoshub-4|Cosmos Main Network
-
-
-### networkVersion
-if `chainType == 'eth'` the chainId will be the Decimal value for chainId.
-if `chainType == 'cosmos'` the chainId will be same as chainId
-
-
-### accounts
-
-current selected wallet address:
-
-for eth: `0x615D68f12e953F61725d4A1C0532719E3F74651E`
-
-for Crypto.org or Csomos: `cro1kdk6vpf5d5qphyqy70rx05nklmypqk64ucn52p` or `cosmos15rkfcvw0qq85v79l6m6gfwz3an4e6zw9hnwcsd`
-
-
-## Methods
-
-We have implemented all methods which defined in [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193)
-
-## Events
-
-We have implemented all events which defined in [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193)
-
-
-
-## Errors
-All errors thrown or returned by the Crypto.com | Wallet Extension provider follow this interface:
-
-```javascript
-interface ProviderRpcError extends Error {
-  message: string;
-  code: number;
-  data?: unknown;
-}
-```
-
-The `ethereum.request(args)` method throws errors eagerly. You can often use the error `code` property to determine why the request failed. Common codes and their meaning include:
-
-`4001`
-The request was rejected by the user
-`-32602`
-The parameters were invalid
-`-32603`
-Internal error
-For the complete list of errors, please see [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193#provider-errors) and [EIP-1474](https://eips.ethereum.org/EIPS/eip-1474#error-codes).
-
-
-# Ethereum RPC API
-
-## personal_sign
-
-The sign method calculates an Ethereum specific signature with:`sign(keccak256("\x19Ethereum Signed Message:\n" + len(message) + message)))`.
-
-By adding a prefix to the message makes the calculated signature recognisable as an Ethereum specific signature. This prevents misuse where a malicious DApp can sign arbitrary data \(e.g. transaction\) and use the signature to impersonate the victim.
-
-**Note** See ecRecover to verify the signature.
-
-**Parameters**
-
-message, account
-
-1. `DATA`, N Bytes - message to sign.
-2. `DATA`, 20 Bytes - address.
-
-**Returns**
-
-`DATA`: Signature
-
-**Example**
-
-```javascript
-// Request
-{
-  "id": 1,
-  "jsonrpc": "2.0",
-  "method": "personal_sign",
-  "params":["0xdeadbeaf","0x9b2055d370f73ec7d8a03e965129118dc8f5bf83"],
-}
-
-// Result
-{
-  "id": 1,
-  "jsonrpc": "2.0",
-  "result": "0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b"
-}
-```
+here's all of the SDK supported RPC methods API documentation.
 
 ## eth_sign
 
@@ -188,17 +28,16 @@ account, message
 
 **Example**
 
-```javascript
-// Request
+```js title="Request"
 {
   "id": 1,
   "jsonrpc": "2.0",
   "method": "eth_sign",
-  "params": ["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "0xdeadbeaf"],
+  "params": ["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "0xdeadbeaf"]
 }
+```
 
-
-// Result
+```js title="Response"
 {
   "id": 1,
   "jsonrpc": "2.0",
@@ -207,6 +46,44 @@ account, message
 ```
 
 An example how to use solidity ecrecover to verify the signature calculated with `eth_sign` can be found [here](https://gist.github.com/bas-vk/d46d83da2b2b4721efb0907aecdb7ebd). The contract is deployed on the testnet Ropsten and Rinkeby.
+
+## personal_sign
+
+The sign method calculates an Ethereum specific signature with:`sign(keccak256("\x19Ethereum Signed Message:\n" + len(message) + message)))`.
+
+By adding a prefix to the message makes the calculated signature recognisable as an Ethereum specific signature. This prevents misuse where a malicious DApp can sign arbitrary data \(e.g. transaction\) and use the signature to impersonate the victim.
+
+**Note** See ecRecover to verify the signature.
+
+**Parameters**
+
+message, account
+
+1. `DATA`, N Bytes - message to sign.
+2. `DATA`, 20 Bytes - address.
+
+**Returns**
+
+`DATA`: Signature
+
+**Example**
+
+```js title="Request"
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "method": "personal_sign",
+  "params":["0xdeadbeaf","0x9b2055d370f73ec7d8a03e965129118dc8f5bf83"],
+}
+```
+
+```js title="Response"
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": "0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b"
+}
+```
 
 ## eth_signTypedData
 
@@ -225,7 +102,7 @@ account, message
 
 **Example** Parameters
 
-```javascript
+```js title="Request"
 [
   "0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826",
   {
@@ -301,17 +178,16 @@ account, message
 
 **Example**
 
-```javascript
-// Request
+```js title="Request"
 {
   "id": 1,
   "jsonrpc": "2.0",
   "method": "eth_signTypedData",
-  "params": ["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", {see above}],
+  "params": ["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", {/*see above*/}],
 }
-'
+```
 
-// Result
+```js title="Response"
 {
   "id": 1,
   "jsonrpc": "2.0",
@@ -336,13 +212,12 @@ Creates new message call transaction or a contract creation, if the data field c
 
 **Example** Parameters
 
-```javascript
+```js title="Request"
 [
   {
     from: "0xb60e8dd61c5d32be8058bb8eb970870f07233155",
     to: "0xd46e8dd67c5d32be8058bb8eb970870f07244567",
-    data:
-      "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+    data: "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
     gas: "0x76c0", // 30400
     gasPrice: "0x9184e72a000", // 10000000000000
     value: "0x9184e72a", // 2441406250
@@ -359,16 +234,16 @@ Use [eth_getTransactionReceipt](https://github.com/ethereum/wiki/wiki/JSON-RPC#e
 
 **Example**
 
-```javascript
-// Request
+```js title="Request"
 {
   "id": 1,
   "jsonrpc": "2.0",
   "method": "eth_sendTransaction",
-  "params":[{see above}],
+  "params":[{/*see above*/}],
 }
+```
 
-// Result
+```js title="Response"
 {
   "id": 1,
   "jsonrpc": "2.0",
@@ -393,13 +268,12 @@ Signs a transaction that can be submitted to the network at a later time using w
 
 **Example** Parameters
 
-```javascript
+```js title="Request"
 [
   {
     from: "0xb60e8dd61c5d32be8058bb8eb970870f07233155",
     to: "0xd46e8dd67c5d32be8058bb8eb970870f07244567",
-    data:
-      "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+    data: "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
     gas: "0x76c0", // 30400
     gasPrice: "0x9184e72a000", // 10000000000000
     value: "0x9184e72a", // 2441406250
@@ -414,16 +288,16 @@ Signs a transaction that can be submitted to the network at a later time using w
 
 **Example**
 
-```javascript
-// Request
+```js title="Request"
 {
   "id": 1,
   "jsonrpc": "2.0",
   "method": "eth_signTransaction",
-  "params":[{see above}],
+  "params":[{/*see above*/}],
 }
+```
 
-// Result
+```js title="Response"
 {
   "id": 1,
   "jsonrpc": "2.0",
@@ -447,8 +321,7 @@ Use [eth_getTransactionReceipt](https://github.com/ethereum/wiki/wiki/JSON-RPC#e
 
 **Example**
 
-```javascript
-// Request
+```js title="Request"
 {
   "id": 1,
   "jsonrpc": "2.0",
@@ -457,8 +330,9 @@ Use [eth_getTransactionReceipt](https://github.com/ethereum/wiki/wiki/JSON-RPC#e
     "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f07244567"
   ],
 }
+```
 
-// Result
+```js title="Response"
 {
   "id": 1,
   "jsonrpc": "2.0",
@@ -466,11 +340,13 @@ Use [eth_getTransactionReceipt](https://github.com/ethereum/wiki/wiki/JSON-RPC#e
 }
 ```
 
-##  wallet_addEthereumChain
+## wallet_addEthereumChain
+
 > This method is specified by [EIP-3085](https://eips.ethereum.org/EIPS/eip-3085).
 
 **Parameters**
 
+```ts
 interface AddEthereumChainParameter {
   chainId: string; // A 0x-prefixed hexadecimal string
   chainName: string;
@@ -483,10 +359,13 @@ interface AddEthereumChainParameter {
   blockExplorerUrls?: string[];
   iconUrls?: string[]; // Currently ignored.
 }
+```
+
 **Returns**
 `null` - The method returns null if the request was successful, and an error otherwise.
 
 ### Description
+
 Creates a confirmation asking the user to add the specified chain to Wallet. The user may choose to switch to the chain once it has been added.
 
 As with any method that causes a confirmation to appear, wallet_addEthereumChain should only be called as a result of direct user action, such as the click of a button.
@@ -498,21 +377,21 @@ If the RPC endpoint returns a different chain ID when eth_chainId is called.
 If the chain ID corresponds to any default Wallet chains.
 Wallet does not yet support chains with native currencies that do not have 18 decimals, but may do so in the future.
 
-
 ## wallet_switchEthereumChain
 
 > This method is specified by [EIP-3326](https://eips.ethereum.org/EIPS/eip-3326).
 
 **Parameters**
+
 - about the chain that Wallet will switch to.
 
 **Returns**
+
 - null - The method returns null if the request was successful, and an error otherwise.
 
 **Example**
 
-```javascript
-// Request
+```js title="Request"
 {
   "id": 1,
   "jsonrpc": "2.0",
@@ -523,8 +402,9 @@ Wallet does not yet support chains with native currencies that do not have 18 de
     }
   ],
 }
+```
 
-// Result
+```js title="Response"
 {
   "id": 1,
   "jsonrpc": "2.0",
@@ -532,12 +412,12 @@ Wallet does not yet support chains with native currencies that do not have 18 de
 }
 ```
 
-# Cosmos RPC API
 
 ## cosmos_sendTransaction
 
 IBC request demo
-``` json
+
+```json
 {
     "id":1633401844820623,
     "jsonrpc":"2.1",
@@ -600,7 +480,8 @@ IBC request demo
 ```
 
 response demo for the cosmos_sendTransaction request:
-``` json
+
+```json
 {
   "id": xxx,
   "jsonrpc": '2.1',
