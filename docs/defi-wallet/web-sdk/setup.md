@@ -30,7 +30,7 @@ import { DeFiWeb3Connector } from "@deficonnect/web3-connector";
 const connector = new DeFiWeb3Connector({
   supportedChainIds: [1],
   chainType: "eth", // only support 'eth' for DeFiWeb3Connector
-  chainId: "1", // for eth is 1
+  chainId: "25",
   rpcUrls: {
     1: "https://mainnet.infura.io/v3/INFURA_API_KEY",
     25: "https://evm-cronos.crypto.org/",

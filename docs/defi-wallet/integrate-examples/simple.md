@@ -1,7 +1,11 @@
 ---
 title: Simple Example
-sidebar_position: 7
+sidebar_position: 1
 ---
+
+# Simple Example
+
+here's a simple example
 
 ```jsx title="App.jsx"
 import React from "react";
@@ -21,7 +25,7 @@ export function App(props) {
         appName: "your app name",
         chainType: "eth", // only support 'eth' for DeFiWeb3Connector
         chainId: "1", // for eth is 1
-        rpc: {
+        rpcUrls: {
           1: "https://mainnet.infura.io/v3/INFURA_API_KEY",
           25: "https://evm.cronos.org/", // cronos mainet
         },
