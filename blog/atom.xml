@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://vern-crypto.github.io/crypto-com-docs/blog</id>
-    <title>Crypto.com Docs Blog</title>
+    <title>DeFi Wallet Blog</title>
     <updated>2021-08-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://vern-crypto.github.io/crypto-com-docs/blog"/>
-    <subtitle>Crypto.com Docs Blog</subtitle>
+    <subtitle>DeFi Wallet Blog</subtitle>
     <icon>https://vern-crypto.github.io/crypto-com-docs/img/favicon-32x32.png</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
