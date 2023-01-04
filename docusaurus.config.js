@@ -6,7 +6,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Crypto.com Docs",
+  title: "DeFi Wallet",
   tagline: "Developer Documentation Center",
   url: "https://vern-crypto.github.io",
   baseUrl: "/crypto-com-docs",
@@ -80,7 +80,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "Crypto.com Docs",
+        title: "DeFi Wallet",
         logo: {
           alt: "Crypto.com Logo",
           src: "img/logo.svg",
