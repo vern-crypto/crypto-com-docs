@@ -28,3 +28,22 @@
   --ifm-color-primary-lightest: #8cdbff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+
+.hero {
+    align-items: flex-start;
+    background: transparent;
+    height: calc(100vh - 150px);
+}
+
+.hero.heroBanner_src-pages-index-module {
+    background-color: red;
+    background-image: url('/img/FFTB_WALLPAPER_MARS-1_2048PX-transformed.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.hero__title, .hero__subtitle {
+    color: #fff;
+}

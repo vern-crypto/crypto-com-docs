@@ -86,41 +86,56 @@ const config = {
           src: "img/logo.svg",
         },
         items: [
-          {
-            label: "Development",
-            type: "dropdown",
-            position: "left",
-            items: [
-            //   {
-            //     type: "doc",
-            //     docId: "tutorial/intro",
-            //     label: "Tutorial",
-            //   },
-              {
-                label: "DeFi Wallet",
-                type: "doc",
-                docId: "defi-wallet/introduction/welcome",
-              },
-              //   {
-              //     label: "APIs",
-              //     type: "doc",
-              //     docId: "accessibilityinfo",
-              //   },
-              //   {
-              //     label: "Architecture",
-              //     type: "doc",
-              //     docId: "architecture-overview",
-              //     docsPluginId: "architecture",
-              //   },
-            ],
-          },
+        //   {
+        //     label: "Development",
+        //     type: "dropdown",
+        //     position: "left",
+        //     items: [
+        //       //   {
+        //       //     type: "doc",
+        //       //     docId: "tutorial/intro",
+        //       //     label: "Tutorial",
+        //       //   },
+        //       {
+        //         label: "DeFi Wallet",
+        //         type: "doc",
+        //         docId: "defi-wallet/introduction/welcome",
+        //       },
+        //       //   {
+        //       //     label: "APIs",
+        //       //     type: "doc",
+        //       //     docId: "accessibilityinfo",
+        //       //   },
+        //       //   {
+        //       //     label: "Architecture",
+        //       //     type: "doc",
+        //       //     docId: "architecture-overview",
+        //       //     docsPluginId: "architecture",
+        //       //   },
+        //     ],
+        //   },
           //   {
           //     type: "doc",
           //     docId: "intro",
           //     position: "left",
           //     label: "Tutorial",
           //   },
-        //   { to: "/blog", label: "Blog", position: "left" },
+          //   { to: "/blog", label: "Blog", position: "left" },
+          {
+            to: "/docs/category/introduction",
+            label: "Introduction",
+            position: "left",
+          },
+          {
+            to: "/docs/category/web-sdk",
+            label: "Web SDK",
+            position: "left",
+          },
+          {
+            to: "/docs/category/integrate-examples",
+            label: "Integrate Examples",
+            position: "left",
+          },
           {
             href: "https://github.com/vern-crypto/crypto-com-docs",
             label: "GitHub",
@@ -131,45 +146,45 @@ const config = {
       footer: {
         style: "dark",
         links: [
-          {
-            title: "Docs",
-            items: [
-              {
-                label: "Tutorial",
-                to: "/docs/tutorial/intro",
-              },
-            ],
-          },
-          {
-            title: "Community",
-            items: [
-              {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
-              },
-              {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
-              },
-              {
-                label: "Twitter",
-                href: "https://twitter.com/docusaurus",
-              },
-            ],
-          },
-          {
-            title: "More",
-            items: [
-              {
-                label: "Blog",
-                to: "/blog",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/vern-crypto/crypto-com-docs",
-              },
-            ],
-          },
+          //   {
+          //     title: "Docs",
+          //     items: [
+          //       {
+          //         label: "Tutorial",
+          //         to: "/docs/tutorial/intro",
+          //       },
+          //     ],
+          //   },
+          //   {
+          //     title: "Community",
+          //     items: [
+          //       {
+          //         label: "Stack Overflow",
+          //         href: "https://stackoverflow.com/questions/tagged/docusaurus",
+          //       },
+          //       {
+          //         label: "Discord",
+          //         href: "https://discordapp.com/invite/docusaurus",
+          //       },
+          //       {
+          //         label: "Twitter",
+          //         href: "https://twitter.com/docusaurus",
+          //       },
+          //     ],
+          //   },
+          //   {
+          //     title: "More",
+          //     items: [
+          //   {
+          //     label: "Blog",
+          //     to: "/blog",
+          //   },
+          //   {
+          //     label: "GitHub",
+          //     href: "https://github.com/vern-crypto/crypto-com-docs",
+          //   },
+          //     ],
+          //   },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Crypto.com, Inc.`,
       },
